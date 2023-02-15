@@ -1,0 +1,125 @@
+{
+	"pages": [ //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
+		{
+			"path": "pages/index/index",
+			"style": {
+				"navigationBarTitleText": "首页",
+				"app-plus": {
+					"titleNView": {
+						"type": "transparent"
+					}
+				}
+			}
+		}, {
+			"path": "pages/Wechat/Wechat",
+			"style": {
+				"navigationBarTitleText": "",
+				"enablePullDownRefresh": false
+			}
+
+		}, {
+			"path": "pages/OnLive/OnLive",
+			"style": {
+				"navigationBarTitleText": "",
+				"enablePullDownRefresh": false
+			}
+
+		}, {
+			"path": "pages/fapai/fapai",
+			"style": {
+				"navigationBarTitleText": "",
+				"enablePullDownRefresh": false
+			}
+
+		}, {
+			"path": "pages/mine/mine",
+			"style": {
+				"navigationBarTitleText": "",
+				"enablePullDownRefresh": false
+			}
+		},
+		{
+			"path": "pages/acution/classify",
+			"style": {
+				"navigationBarTitleText": "",
+				"enablePullDownRefresh": false
+			}
+		},
+		{
+			"path": "pages/acution/acution",
+			"style": {
+				"navigationBarTitleText": "",
+				"enablePullDownRefresh": false
+			}
+		},
+		{
+			"path": "pages/acution/biddinglist",
+			"style": {
+				"navigationBarTitleText": "",
+				"enablePullDownRefresh": false
+
+			}
+		}, {
+			"path": "pages/syncauction/syncauction",
+			"style": {
+				"navigationBarTitleText": "",
+				"enablePullDownRefresh": false
+			}
+
+		},
+		{
+			"path": "pages/acution/favorite",
+			"style": {
+				"navigationBarTitleText": "竞拍收藏",
+				"enablePullDownRefresh": false
+			}
+
+		},
+		{
+			"path": "pages/acution/records",
+			"style": {
+				"navigationBarTitleText": "竞拍记录",
+				"enablePullDownRefresh": false
+			}
+
+		}
+	],
+	"globalStyle": {
+		"navigationBarTextStyle": "black",
+		"navigationBarTitleText": "uni-app",
+		"navigationBarBackgroundColor": "#F8F8F8",
+		"backgroundColor": "#F8F8F8"
+	},
+	"tabBar": {
+		"list": [{
+				"pagePath": "pages/index/index",
+				"iconPath": "static/img/home.png",
+				"selectedIconPath": "static/index/tab-home-current.png",
+				"text": "首页"
+			},
+			{
+				"pagePath": "pages/Wechat/Wechat",
+				"iconPath": "static/index/tab-car.png",
+				"selectedIconPath": "static/index/tab-car-current.png",
+				"text": "车友圈"
+			},
+			{
+				"pagePath": "pages/OnLive/OnLive",
+				"iconPath": "static/index/live.png",
+				"selectedIconPath": "static/index/lives.png",
+				"text": "直播"
+			}, {
+				"pagePath": "pages/fapai/fapai",
+				"iconPath": "static/index/tab-pai.png",
+				"selectedIconPath": "static/index/tab-pai-current.png",
+				"text": "发布竞拍"
+			}, {
+				"pagePath": "pages/mine/mine",
+				"iconPath": "static/tab-my.png",
+				"selectedIconPath": "static/index/tab-my-current.png",
+				"text": "我的"
+			}
+
+		]
+	}
+}
