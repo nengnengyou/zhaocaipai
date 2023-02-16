@@ -20,6 +20,10 @@ export default {
 			return Y + M + D
 		}
 	},
+	//获取登录信息
+	login(param) {
+		return postlive("/api/user/login", param)
+	},
 
 	// 获取首页数据  轮播  竞拍中车源数量
 	getIndexData() {

@@ -19,13 +19,13 @@
 				</view>
 				<view class="input-item">
 					<text class="tit">密码</text>
-					<input type="password" value="" data-key="password" @input='inputChange' @confirm="toLogin"
+					<input type="password" value="" password data-key="password" @input='inputChange' @confirm="toLogin"
 						placeholder="8-18位不含特殊字符的数字,字母组合">
 				</view>
 			</view>
 
 
-			<button class="confirm-btn bg-blue">登录</button>
+			<button class="confirm-btn bg-blue" :disabled="logining" @click="toLogin">登录</button>
 			<view class="forget-section">
 				忘记密码？
 			</view>
@@ -53,22 +53,102 @@
 </template>
 
 <script>
+	import {
+		mapMutations
+	} from 'vuex';
+
 	export default {
 		data() {
 			return {
 				isAutoLogin: false,
 				checked: false,
 				mobile: '',
+				password: "",
+				logining: false,
+				type: '',
+				// 用户信息
+				user: {
+					mobile: '',
+					password: '',
+					model: '',
+					uuid: '',
+					cid: '',
+					edition: ''
+				}
 			}
 		},
 		methods: {
+
+
 			inputChange(e) {
 				console.log(e, 1234)
 				const key = e.currentTarget.dataset.key
-				this.key = e.detail.value
-				console.log(this.key)
+				this[key] = e.detail.value
+				console.log(this[key])
 
+			},
+
+			toLogin() {
+				// 先判断是否勾选选了隐私协议
+				if (!this.checked) {
+					this.$msg('请先勾选同意隐私协议')
+					console.log('勾选用户隐私协议')
+					return
+
+				}
+				this.type = 3
+				this.logining = true
+				//判断是否输入了账号和密码
+				if (this.mobile == '' || this.password == '') {
+					this.$msg('请输入账号或密码')
+					return
+				}
+
+
+				// 用户输入账号密码后，将账号密码存到user中
+				this.user.mobile = this.mobile
+				this.user.password = this.password
+				this.user.type = this.type
+
+
+				//发送请求，核对信息是否正确
+				this.$apiService.login(this.user).then(res => {
+					console.log(res, 77777)
+					// 如果账户不正确
+					if (res.code != 1) {
+						this.$msg(res.msg)
+						this.logining = false
+						return
+					} else {
+						this.$msg(res.msg)
+						console.log(res)
+						let token = res.data.userinfo.token
+
+						this.$store.commit('login', res.data.userinfo)
+
+						try {
+							uni.setStorageSync('token',
+								token); //将 data 存储在本地缓存中指定的 key 中，会覆盖掉原来该 key 对应的内容，这是一个同步接口
+							setTimeout(() => {
+								uni.switchTab({
+									url: '../index/index'
+								})
+							}, 300)
+
+							this.$updateHttpConfig()
+
+
+							console.log(uni.getStorageSync('token'), 3333333333);
+						} catch (e) {
+							// error
+							console.error('保存token失败');
+						}
+
+
+					}
+				})
 			}
+
 		}
 	}
 </script>
