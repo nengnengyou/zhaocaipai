@@ -16,8 +16,7 @@
 		</view>
 		<!-- 登录即表明知悉并同意《隐私协议》《用户使用协议》 -->
 		<view class="tips1 text-center">
-			<!-- <u-checkbox>知悉并同意《隐私协议》《用户使用协议》</u-checkbox> -->
-
+			<u-checkbox :disabled="false">知悉并同意《隐私协议》《用户使用协议》</u-checkbox>
 		</view>
 
 

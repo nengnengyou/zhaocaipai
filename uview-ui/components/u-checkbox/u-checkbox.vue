@@ -1,7 +1,8 @@
 <template>
 	<view class="u-checkbox" :style="[checkboxStyle]">
 		<view class="u-checkbox__icon-wrap" @tap="toggle" :class="[iconClass]" :style="[iconStyle]">
-			<u-icon class="u-checkbox__icon-wrap__icon" name="checkbox-mark" :size="checkboxIconSize" :color="iconColor"/>
+			<u-icon class="u-checkbox__icon-wrap__icon" name="checkbox-mark" :size="checkboxIconSize"
+				:color="iconColor" />
 		</view>
 		<view class="u-checkbox__label" @tap="onClickLabel" :style="{
 			fontSize: $u.addUnit(labelSize)
@@ -116,7 +117,7 @@
 				let style = {};
 				// 既要判断是否手动禁用，还要判断用户v-model绑定的值，如果绑定为false，那么也无法选中
 				if (this.elActiveColor && this.value && !this.isDisabled) {
-					style.borderColor = this.elActiveColor; 
+					style.borderColor = this.elActiveColor;
 					style.backgroundColor = this.elActiveColor;
 				}
 				style.width = this.$u.addUnit(this.checkboxSize);
@@ -138,7 +139,7 @@
 			},
 			checkboxStyle() {
 				let style = {};
-				if(this.parent && this.parent.width) {
+				if (this.parent && this.parent.width) {
 					style.width = this.parent.width;
 					// #ifdef MP
 					// 各家小程序因为它们特殊的编译结构，使用float布局
@@ -149,7 +150,7 @@
 					style.flex = `0 0 ${this.parent.width}`;
 					// #endif
 				}
-				if(this.parent && this.parent.wrap) {
+				if (this.parent && this.parent.wrap) {
 					style.width = '100%';
 					// #ifndef MP
 					// H5和APP使用flex布局，将宽度设置100%，即可自动换行
@@ -178,14 +179,14 @@
 				// 执行父组件u-checkbox-group的事件方法
 				// 等待下一个周期再执行，因为this.$emit('input')作用于父组件，再反馈到子组件内部，需要时间
 				setTimeout(() => {
-					if(this.parent && this.parent.emitEvent) this.parent.emitEvent();
+					if (this.parent && this.parent.emitEvent) this.parent.emitEvent();
 				}, 80);
 			},
 			// 设置input的值，这里通过input事件，设置通过v-model绑定的组件的值
 			setValue() {
 				// 判断是否超过了可选的最大数量
 				let checkedNum = 0;
-				if(this.parent && this.parent.children) {
+				if (this.parent && this.parent.children) {
 					// 只要父组件的某一个子元素的value为true，就加1(已有的选中数量)
 					this.parent.children.map(val => {
 						if (val.value) checkedNum++;
@@ -197,7 +198,7 @@
 					this.$emit('input', !this.value);
 				} else {
 					// 如果超出最多可选项，提示
-					if(this.parent && checkedNum >= this.parent.max) {
+					if (this.parent && checkedNum >= this.parent.max) {
 						return this.$u.toast(`最多可选${this.parent.max}项`);
 					}
 					// 如果原来为未选中状态，需要选中的数量少于父组件中设置的max值，才可以选中
@@ -220,7 +221,7 @@
 		overflow: hidden;
 		user-select: none;
 		line-height: 1.8;
-		
+
 		&__icon-wrap {
 			color: $u-content-color;
 			flex: none;
@@ -237,45 +238,46 @@
 			font-size: 20px;
 			border: 1px solid #c8c9cc;
 			transition-duration: 0.2s;
-			
+
 			/* #ifdef MP-TOUTIAO */
 			// 头条小程序兼容性问题，需要设置行高为0，否则图标偏下
 			&__icon {
 				line-height: 0;
 			}
+
 			/* #endif */
-			
+
 			&--circle {
 				border-radius: 100%;
 			}
-			
+
 			&--square {
 				border-radius: 6rpx;
 			}
-			
+
 			&--checked {
 				color: #fff;
 				background-color: $u-type-primary;
 				border-color: $u-type-primary;
 			}
-			
+
 			&--disabled {
 				background-color: #ebedf0;
 				border-color: #c8c9cc;
 			}
-			
+
 			&--disabled--checked {
 				color: #c8c9cc !important;
 			}
 		}
-	
+
 		&__label {
 			word-wrap: break-word;
 			margin-left: 10rpx;
 			margin-right: 24rpx;
 			color: $u-content-color;
 			font-size: 30rpx;
-			
+
 			&--disabled {
 				color: #c8c9cc;
 			}
