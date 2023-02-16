@@ -122,6 +122,14 @@
 				"enablePullDownRefresh": false
 			}
 
+		},
+		{
+			"path": "pages/login/login",
+			"style": {
+				"navigationBarTitleText": "账号密码登录",
+				"enablePullDownRefresh": false
+			}
+
 		}
 	],
 	"globalStyle": {

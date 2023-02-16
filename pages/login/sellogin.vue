@@ -10,7 +10,7 @@
 				<view class="padding flex flex-direction">
 					<button class="cu-btn btn-color-blue lg"> 微信快速登录</button>
 					<button class="cu-btn btn-color-blue margin-tb-lg lg">手机一键登录</button>
-					<button class="cu-btn btn-color-blue margin-tb-lg lg">账号密码登录</button>
+					<button class="cu-btn btn-color-blue margin-tb-lg lg" @tap="toPwd">账号密码登录</button>
 				</view>
 			</view>
 		</view>
@@ -33,6 +33,16 @@
 			}
 		},
 		methods: {
+			toPwd() {
+				if (!this.checked) {
+					this.$msg('请先勾选页面下方的"知悉并同意《隐私协议》《用户使用协议》"')
+					return
+				}
+				uni.navigateTo({
+					url: 'login'
+				});
+
+			}
 
 		}
 	}
