@@ -6,6 +6,12 @@ import {
 import Api from 'service/api.js'
 
 
+
+import uView from "uview-ui";
+Vue.use(uView);
+
+
+
 // 信息提示的封装
 const msg = (title, duration = 1500, mask = false, icon = 'none') => {
 	if (Boolean(title) === false) {

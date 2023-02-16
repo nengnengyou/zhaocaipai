@@ -19,6 +19,9 @@
 	}
 </script>
 
-<style>
+<style lang="scss">
 	/*每个页面公共css */
+
+	/* #ifndef APP-PLUS-NVUE */
+	@import 'uview-ui/index.scss';
 </style>
