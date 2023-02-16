@@ -1,8 +1,15 @@
 <script>
+	// import Vue from 'vue'
+	import store from './store'
+	import {
+		mapMutations
+	} from 'vuex';
+
 	export default {
-		onLaunch: function() {
-			// console.log('App Launch')
+		methods: {
+
 		},
+
 		onShow: function() {
 			// console.log('App Show')
 		},

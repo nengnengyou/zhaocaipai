@@ -37,7 +37,45 @@ export default {
 	getAuctionSessionIndex(param) {
 		return post('/api/bidding/auction_car_index', param)
 
-	}
+	},
+	// 获取个人信息
+	getUserInfo() {
+		return postlive('/api/index/index')
+	},
+	/**
+	 *  根据服务类型查询查询记录 /api/fuwu/fuwuListByType
+	 * */
+	getFuWuListByType(param) {
+		return post("/api/fuwu/fuwuListByType", param)
+	},
+	getFuWuUserInfo() {
+		return post("/api/user/get_user_info")
+	},
+	/**
+	 *  服务订单详情
+	 * */
+	getFuWuInfo(param) {
+		return post("/api/fuwu/fuwuInfo", param)
+	},
+	// 获取协议
+	getRule(param) {
+		return post('/api/home/agreement', param)
+	},
+	/**
+	 *  获取查询所需要的金额
+	 * */
+	getFuWuMoney() {
+		return post('/api/fuwu/getMoney')
+	},
+	svaeFuWuUserInfo(param) {
+		return post('/api/user/save_user_info', param)
+	},
+	/**
+	 *  创建服务订单写入交易日志返回订单号 /api/fuwu/setFuwuIndent
+	 * */
+	getInquiryOrder(param) {
+		return post('/api/fuwu/setFuwuIndent', param)
+	},
 
 
 }

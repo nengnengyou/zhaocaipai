@@ -34,8 +34,30 @@
 		}, {
 			"path": "pages/mine/mine",
 			"style": {
-				"navigationBarTitleText": "",
+				"navigationBarTitleText": "我的",
 				"enablePullDownRefresh": false
+			},
+			"app-plus": {
+				"titleNView": {
+					"type": "transparent",
+					"buttons": [{
+							"fontSrc": "/static/yticon.ttf",
+							"text": "\ue60f",
+							"fontSize": "24",
+							"color": "#303133",
+							"width": "46px",
+							"background": "rgba(0,0,0,0)"
+						},
+						{
+							"fontSrc": "/static/yticon.ttf",
+							"text": "\ue744",
+							"fontSize": "28",
+							"color": "#303133",
+							"background": "rgba(0,0,0,0)",
+							"redDot": false
+						}
+					]
+				}
 			}
 		},
 		{
@@ -79,6 +101,20 @@
 			"path": "pages/acution/records",
 			"style": {
 				"navigationBarTitleText": "竞拍记录",
+				"enablePullDownRefresh": false
+			}
+
+		},
+		{
+			"path": "pages/carinquiry/carinquiry",
+			"style": {
+				"navigationBarTitleText": "违章查询",
+				"enablePullDownRefresh": false
+			}
+		}, {
+			"path": "pages/login/sellogin",
+			"style": {
+				"navigationBarTitleText": "选择登录方式",
 				"enablePullDownRefresh": false
 			}
 

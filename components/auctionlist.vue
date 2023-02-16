@@ -10,22 +10,26 @@
 						<text class="text-padding" space="nbsp" decode="true" v-if="item.second"> 二轮报价</text>
 					</view>
 					<text>{{ item.title }}</text>
-
+					<!-- <text>{{ item.resource_path }}</text> -->
 					<text>{{ item.car_num }}台</text>
 				</view>
 
 				<view class="auction-item-text  text-left">
 					<view v-html="item.rule" class="item-text"></view>
-
+					<!-- <jyf-parser :html="item.rule" ref="article"></jyf-parser> -->
 				</view>
 
 				<view class="auction-item-tips">
 					<text>{{ item.company }}</text>
 					<uni-countdown :show-day="true" :second="time" :reset="reset"></uni-countdown>
+					<!-- <text>截止时间：{{$u.timeFormat(item.end_time, 'yyyy年mm月dd日 hh:MM:ss')}}</text> -->
 				</view>
 			</view>
 		</view>
 
+		<!-- 	<view class="auction-list-tips">
+			{{item.status_text}}
+		</view> -->
 
 		<view class="cu-modal" :class="modalName == 'Modal' ? 'show' : ''">
 			<view class="cu-dialog">
@@ -35,9 +39,16 @@
 				</view>
 				<view class="padding-xl text-left ss">
 					<view v-html="item.rule" class="text-left"></view>
-					<jyf-parser :html="item.rule" ref="article"></jyf-parser>
+					<!-- <jyf-parser :html="item.rule" ref="article"></jyf-parser> -->
 				</view>
 
+				<!-- <view class="cu-bar bg-white justify-center">
+					<view class="action">
+						<button class="cu-btn line-green text-green" @tap="hideModal">取消</button>
+						<button class="cu-btn bg-blue margin-left" @tap="goCarList(modalItem.id)">进入</button>
+				
+					</view>
+				</view> -->
 				<view class="padding flex flex-direction"><button class="cu-btn bg-blue lg"
 						@tap="goCarList(item.id,item.catid)">进入</button></view>
 			</view>
