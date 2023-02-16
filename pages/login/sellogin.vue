@@ -2,28 +2,14 @@
 	<view class="select-login">
 		<view class="content">
 			<view class="logo-c">
-				<view class="logo"></view>
-				<text>欢迎使用招财拍</text>
-			</view>
+				<view class="logo">
 
-			<view class="login-btns">
-				<view class="padding flex flex-direction">
-					<button class="cu-btn btn-color-blue lg"> 微信快速登录</button>
-					<button class="cu-btn btn-color-blue margin-tb-lg lg">手机一键登录</button>
-					<button class="cu-btn btn-color-blue margin-tb-lg lg">账号密码登录</button>
 				</view>
+				<text>欢迎使用招财拍</text>
+
 			</view>
-		</view>
-		<!-- 登录即表明知悉并同意《隐私协议》《用户使用协议》 -->
-		<view class="tips1 text-center">
-			<u-checkbox>知悉并同意《隐私协议》《用户使用协议》</u-checkbox>
-			<!-- <u-checkbox v-model="checked" :disabled="false">知悉并同意《隐私协议》《用户使用协议》</u-checkbox> -->
-
-
 
 		</view>
-
-
 
 	</view>
 </template>
