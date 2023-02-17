@@ -40,7 +40,7 @@
 			<view class="cu-load load-modal">
 				<image src="../../static/index/logo.png" mode=""></image>
 				<view class="gray-text">
-					<!-- 正在加载一键登录 -->
+					正在加载一键登录
 				</view>
 			</view>
 		</view>
