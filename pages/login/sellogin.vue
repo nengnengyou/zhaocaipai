@@ -8,8 +8,8 @@
 
 			<view class="login-btns">
 				<view class="padding flex flex-direction">
-					<button class="cu-btn btn-color-blue lg"> 微信快速登录</button>
-					<button class="cu-btn btn-color-blue margin-tb-lg lg">手机一键登录</button>
+					<button class="cu-btn btn-color-blue lg" @tap="toWXLogin" v-if="loginShow"> 微信快速登录</button>
+					<button class="cu-btn btn-color-blue margin-tb-lg lg" @tap="toPhoneLogin">手机一键登录</button>
 					<button class="cu-btn btn-color-blue margin-tb-lg lg" @tap="toPwd">账号密码登录</button>
 				</view>
 			</view>
@@ -28,20 +28,59 @@
 	export default {
 		data() {
 			return {
-				checked: false
+				checked: false,
+				loginShow: false,
 
 			}
 		},
+
 		methods: {
+
+			ifIosLogin() {
+				let platform = uni.getSystemInfoSync().platform //获取系统信息的同步接口
+				// 如果是android
+				if (platform == 'android') {
+					this.loginShow = true
+				}
+			},
+			// 微信登录
+			toWXLogin() {
+				// 检验是否勾选了隐私协议
+				if (!this.checked) {
+					this.$msg('请先勾选页面下方的"知悉并同意《隐私协议》《用户使用协议》')
+					return
+				}
+				let _this = this;
+				uni.login({
+					provider: 'weixin',
+					success: function(loginRes) {
+						console.log(JSON.stringify(loginRes))
+
+					}
+				})
+			},
+			// 账号密码登录
 			toPwd() {
 				if (!this.checked) {
-					this.$msg('请先勾选页面下方的"知悉并同意《隐私协议》《用户使用协议》"')
+					this.$msg('请先勾选页面下方的"知悉并同意《隐私协议》《用户使用协议》')
 					return
 				}
 				uni.navigateTo({
 					url: 'login'
 				});
 
+			},
+			// 手机一键登录
+			toPhoneLogin() {
+				if (!this.checked) {
+					this.$msg('请先勾选页面下方的"知悉并同意《隐私协议》《用户使用协议》')
+					return
+				}
+				setTimeout(() => {
+					uni.navigateTo({
+						url: './login?type=phone'
+					})
+				}, 600)
 			}
 
 		}

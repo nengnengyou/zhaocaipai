@@ -80,6 +80,22 @@ export default {
 	getInquiryOrder(param) {
 		return post('/api/fuwu/setFuwuIndent', param)
 	},
+	//注册
+	register(param) {
+		return post('/api/user/register', param)
+	},
+	getArea(param) {
+		return post('/api/common/get_area', param)
+	},
+	/** 重置密码  */
+	resetPwd(param) {
+		return post('/api/user/resetpwd', param)
+	},
+
+	/** 获取验证码  */
+	getCodedat(param) {
+		return post('/api/sms/send', param)
+	},
 
 
 }
