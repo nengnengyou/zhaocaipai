@@ -16,7 +16,7 @@
 				<input placeholder="请再次输入新的密码" name="input" password='true' v-model="param.newpassword"></input>
 			</view>
 			<view class="cu-form-group">
-				<view class="title">验证码</view>
+				<view class="title">验证码111111111</view>
 				<input placeholder="请输入验证码" name="input" type='number' maxlength='6' v-model="param.captcha"></input>
 				<button class='cu-btn bg-blue shadow' :class="codeTipsColor[getCodeStatus]"
 					@tap="getCode">{{codeTips[getCodeStatus]}}</button>
