@@ -3,7 +3,10 @@
 		<form>
 			<view class="cu-form-group margin-top">
 				<view class="title">手机号</view>
+<<<<<<< .merge_file_a12428
 				<input v-if="from == 'login'" placeholder="请输入手机号" name="input" v-model="param.mobile" ></input>
+=======
+>>>>>>> .merge_file_a08344
 				<input v-if="from == 'user'" placeholder="请输入手机号" name="input" v-model="param.mobile"
 					disabled="false"></input>
 				<input v-if="from == 'login'" placeholder="请输入手机号" name="input" v-model="param.mobile"></input>
@@ -17,11 +20,15 @@
 				<input placeholder="请再次输入新的密码" name="input" password='true' v-model="param.newpassword"></input>
 			</view>
 			<view class="cu-form-group">
+<<<<<<< .merge_file_a12428
 <<<<<<< HEAD
 				<view class="title">验证码123</view>
 =======
 				<view class="title">验证码111111111</view>
 >>>>>>> devlopement
+=======
+				<view class="title">验证码123</view>
+>>>>>>> .merge_file_a08344
 				<input placeholder="请输入验证码" name="input" type='number' maxlength='6' v-model="param.captcha"></input>
 				<button class='cu-btn bg-blue shadow' :class="codeTipsColor[getCodeStatus]"
 					@tap="getCode">{{codeTips[getCodeStatus]}}</button>
