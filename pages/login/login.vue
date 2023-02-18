@@ -7,7 +7,7 @@
 		<view class="wrapper">
 			<view class="left-top-sign"></view>
 			<view class="welcome">
-				欢迎回来!
+				<!-- 欢迎回来! -->
 
 			</view>
 			<view class="input-content">
@@ -40,7 +40,7 @@
 			<view class="cu-load load-modal">
 				<image src="../../static/index/logo.png" mode=""></image>
 				<view class="gray-text">
-					<!-- 正在加载一键登录 -->
+					正在加载一键登录
 				</view>
 			</view>
 		</view>
