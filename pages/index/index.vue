@@ -106,6 +106,13 @@
 		</view>
 
 
+		<!-- *********** -->
+		<zjc-scroll-nav :platformList='firstColumn'>
+		</zjc-scroll-nav>
+		<!-- <an-notice-bar :text='text'></an-notice-bar> -->
+		<hometype></hometype>
+
+
 		<view class="classify-three classify-body">
 			<view class="classify-tips"><text>竞拍中车源</text></view>
 			<view class="" style="margin-top: 10rpx;" v-if="auctionList.length > 0">
@@ -127,10 +134,18 @@
 </template>
 
 <script>
+	import hometype from '../../components/d-swiper-type/pages/home/hometype.vue'
+	import annoticebar from '../../components/an-notice-bar/an-notice-bar.vue'
+	// import zjcscrollnav from '../../components/zjc-scroll-nav/zjc-scroll-nav.vue'
 	import auctionlist from '../../components/auctionlist.vue'
+	import zjcscrollnav from '../../components/zjc-scroll-nav/zjc-scroll-nav.vue'
 	export default {
 		components: {
-			auctionlist
+			auctionlist,
+			// zjcscrollnav,
+			zjcscrollnav,
+			annoticebar,
+			hometype
 
 		},
 		data() {
@@ -142,6 +157,8 @@
 				swiperLength: 0,
 				start_auction: 0,
 				isShowWZ: false,
+				firstColumn: [],
+				text: '我我我我我我|他他他他啊他'
 
 
 			}
@@ -169,6 +186,8 @@
 					}
 					this.swiperLength = res.data.ad.length
 					this.carouselList = res.data.ad
+					this.firstColumn = res.data.ad
+					console.log(this.firstColumn)
 					this.titleNViewBackground = res.data.ad[0].bgcolor;
 					this.start_auction = res.data.start_auction
 				})
